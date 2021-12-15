@@ -45,10 +45,12 @@ class LoginActivity : AppCompatActivity() {
 
             if (result!!.isNewUser) {
                 val intent = Intent(this, SignupActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
             else{
                 val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 Toast.makeText(this, "User signed in succesfully!", Toast.LENGTH_SHORT).show()
             }

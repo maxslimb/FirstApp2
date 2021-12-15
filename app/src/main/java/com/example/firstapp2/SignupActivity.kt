@@ -30,7 +30,9 @@ class SignupActivity : AppCompatActivity() {
             database.reference.updateChildren(userupdates).addOnSuccessListener {
 
                 Toast.makeText(this,"Welcome to our App!",Toast.LENGTH_LONG).show()
-                startActivity(Intent(this,MainActivity::class.java))
+                val intent = Intent(this,MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
 
             }
         }
